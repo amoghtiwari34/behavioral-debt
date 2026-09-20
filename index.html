@@ -1,478 +1,182 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="Behavioral Debt by Amogh Tiwari. What persuasive design really costs, and how to build products that do not borrow against trust."><title>Behavioral Debt · Amogh Tiwari</title><link rel="canonical" href="https://amoghtiwari.com/behavioral-debt/">
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Behavioral Debt &middot; Amogh Tiwari</title>
+<meta name="description" content="Behavioral Debt by Amogh Tiwari. What persuasive design really costs, and how to build products that do not borrow against trust. The working manuscript is sent by email.">
+<link rel="canonical" href="https://amoghtiwari.com/behavioral-debt/">
+<meta property="og:type" content="book">
+<meta property="og:site_name" content="Amogh Tiwari">
+<meta property="og:title" content="Behavioral Debt">
+<meta property="og:description" content="What persuasive design really costs, and how to build products that do not borrow against trust. A working manuscript, sent by email.">
+<meta property="og:url" content="https://amoghtiwari.com/behavioral-debt/">
+<meta property="og:image" content="https://amoghtiwari.com/behavioral-debt/folder.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Behavioral Debt">
+<meta name="twitter:description" content="What persuasive design really costs, and how to build products that do not borrow against trust.">
+<meta name="twitter:image" content="https://amoghtiwari.com/behavioral-debt/folder.jpg">
+<meta name="twitter:site" content="@itsamoghtiwari">
 <style>
-:root{
-  --paper:#ffffff; --sheet:#ffffff; --ink:#000000; --muted:#3f4a5a; --rule:#d7dde6;
-  --blue:#1550c8; --blue-soft:#eaf0fb; --blue-line:#b9cdf0;
-  --serif:"Helvetica Neue",Helvetica,Arial,sans-serif;
-  --mono:"Helvetica Neue",Helvetica,Arial,sans-serif;
-  --measure:34rem;
-}
-*{box-sizing:border-box}
-body{margin:0;background:var(--paper);color:var(--ink);overflow-x:clip;max-width:100vw;font-family:var(--serif);
-  font-size:17px;line-height:1.62;-webkit-font-smoothing:antialiased;}
-.wrap{display:grid;grid-template-columns:16rem minmax(0,1fr);gap:0;max-width:76rem;margin:0 auto;}
-
-/* rail */
-.rail{position:sticky;top:0;align-self:start;height:100vh;overflow-y:auto;padding:2.2rem 1.4rem 3rem;
-  border-right:1px solid var(--rule);}
-.rail .brand{font-family:var(--mono);font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;
-  color:var(--muted);line-height:1.7;margin-bottom:1.6rem;}
-.rail .brand b{display:block;color:var(--ink);font-weight:600;letter-spacing:.1em;}
-.navg{font-family:var(--mono);font-size:.58rem;letter-spacing:.16em;text-transform:uppercase;
-  color:var(--muted);margin:1.4rem 0 .5rem;}
-.rail a{display:block;font-family:var(--mono);font-size:.72rem;line-height:1.45;color:var(--muted);
-  text-decoration:none;padding:.3rem 0 .3rem .7rem;}
-.rail a:hover{color:var(--ink);}
-.rail a.on{color:var(--blue);}
-.rail a:focus-visible{outline:none;color:var(--blue);}
-main a:focus-visible{outline:none;text-decoration:underline;}
-
-main{padding:0 0 8rem;min-width:0;}
-
-/* masthead */
-.mast{padding:5rem 3.2rem 3rem;border-bottom:1px solid var(--rule);}
-.mast .kicker{font-family:var(--mono);font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;
-  color:var(--blue);margin:0 0 1.6rem;}
-.mast h1{font-size:clamp(2.1rem,4.4vw,3.1rem);line-height:1.08;margin:0 0 .7rem;font-weight:400;
-  letter-spacing:-.015em;text-wrap:balance;max-width:20ch;}
-.mast .sub{font-size:1.12rem;color:var(--muted);margin:0 0 2.4rem;max-width:46ch;line-height:1.5;}
-.stats{display:flex;flex-wrap:wrap;gap:1.6rem 2.8rem;padding-top:.5rem;}
-.stats div{flex:0 1 auto;padding:0;}
-.stats b{display:block;font-size:1.3rem;font-variant-numeric:tabular-nums;
-  font-weight:700;letter-spacing:-.02em;color:var(--blue);}
-.stats span{font-size:.62rem;font-weight:400;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);}
-
-/* doc */
-.doc{padding:4.5rem 3.2rem;border-bottom:1px solid var(--rule);}
-.eyebrow{font-family:var(--mono);font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;
-  color:var(--blue);margin:0 0 .8rem;}
-.doc h1{font-size:clamp(1.85rem,3.4vw,2.5rem);line-height:1.1;font-weight:700;margin:0 0 1.2rem;
-  letter-spacing:-.02em;text-wrap:balance;max-width:22ch;}
-.standfirst{font-size:1.08rem;font-weight:400;color:var(--muted);max-width:var(--measure);margin:0 0 2.6rem;line-height:1.55;}
-.doc h2{font-size:1.35rem;font-weight:600;line-height:1.25;margin:3.2rem 0 1rem;letter-spacing:-.008em;
-  max-width:26ch;text-wrap:balance;padding-top:1.4rem;border-top:1px solid var(--rule);}
-.doc h3{font-size:1.05rem;font-weight:600;margin:2.2rem 0 .7rem;letter-spacing:.005em;}
-.doc h4{font-family:var(--mono);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;
-  color:var(--muted);margin:1.8rem 0 .6rem;font-weight:600;}
-p,ul,ol{max-width:var(--measure);}
-p{margin:0 0 1.15rem;}
-ul,ol{margin:0 0 1.3rem;padding-left:1.1rem;}
-li{margin:0 0 .5rem;}
-li::marker{color:var(--blue);font-family:var(--mono);font-size:.85em;}
-strong{font-weight:600;}
-a{color:var(--blue);text-decoration:none;border-bottom:1px solid var(--blue-line);}
-a:hover{border-bottom-color:var(--blue);}
-hr{border:0;border-top:1px solid var(--rule);margin:2.6rem 0;max-width:var(--measure);}
-
-/* quotes: no border, indented, set apart by weight of the type only */
-blockquote{margin:1.8rem 0;padding:0;max-width:var(--measure);color:var(--ink);}
-blockquote p{font-size:1.08rem;line-height:1.5;font-style:italic;}
-blockquote p:last-child{margin-bottom:0;}
-blockquote strong{font-style:normal;}
-blockquote em{color:var(--muted);}
-
-/* apparatus */
-code.tok{font-family:var(--mono);font-size:.82em;background:var(--blue-soft);color:var(--ink);
-  padding:.08em .32em;white-space:nowrap;}
-code.pid{color:var(--blue);font-weight:600;letter-spacing:.02em;}
-.mark{font-family:var(--mono);font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;
-  padding:.14em .4em;white-space:nowrap;vertical-align:.08em;font-weight:600;}
-.mark-gap{background:var(--blue-soft);color:var(--blue);}
-.mark-ok{background:var(--ink);color:#fff;}
-.mark-warn{background:#eceef2;color:var(--ink);}
-
-/* tables: no borders, zebra for legibility */
-.tablewrap{overflow-x:auto;margin:1.6rem 0 2rem;max-width:52rem;}
-table{border-collapse:collapse;width:100%;font-size:.86rem;line-height:1.45;}
-th,td{text-align:left;padding:.5rem .9rem;vertical-align:top;font-variant-numeric:tabular-nums;}
-th{font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;
-  color:var(--blue);font-weight:700;white-space:nowrap;}
-tbody tr:nth-child(odd){background:rgba(21,80,200,.035);}
-td strong{font-weight:600;}
-
-/* figures */
-.plate{margin:2rem 0;padding:.4rem 0;background:transparent;
-  overflow-x:auto;max-width:52rem;}
-.plate .mermaid{margin:0;text-align:center;}
-pre.block{margin:0;overflow-x:auto;}
-pre.block code{font-family:var(--mono);font-size:.78rem;line-height:1.55;white-space:pre;color:var(--ink);}
-
-/* pattern entries */
-.entry{margin:0 0 4rem;padding:0 0 3rem;border-bottom:1px solid var(--rule);}
-.entry:last-of-type{border-bottom:0;}
-.p-head{margin:0 0 2rem;}
-.p-chip{font-family:var(--mono);font-size:.68rem;font-weight:600;letter-spacing:.06em;
-  color:var(--blue);background:var(--blue-soft);padding:.2em .45em;}
-.p-head h2{border-top:0;padding-top:.6rem;margin:.5rem 0 1.1rem;font-size:1.7rem;font-weight:700;letter-spacing:-.02em;}
-.p-meta{display:flex;flex-wrap:wrap;gap:1.8rem;margin:0;padding:.2rem 0 1.1rem;}
-.p-meta div{margin:0;}
-.p-meta dt{font-family:var(--mono);font-size:.55rem;letter-spacing:.14em;text-transform:uppercase;
-  color:var(--muted);margin:0 0 .25rem;}
-.p-meta dd{margin:0;font-size:.82rem;font-family:var(--mono);}
-.pill{font-family:var(--mono);font-size:.62rem;letter-spacing:.06em;padding:.18em .45em;
-  white-space:nowrap;font-weight:600;}
-.v-eth{background:var(--blue-soft);color:var(--blue);}
-.v-per{background:var(--blue-soft);color:var(--blue);font-weight:700;}
-.v-man{background:var(--ink);color:#fff;}
-.sev{display:inline-flex;gap:3px;align-items:center;vertical-align:middle;}
-.sev i{width:7px;height:7px;border-radius:50%;display:block;}
-.sev i.on{background:var(--ink);}
-.sev i.off{background:var(--rule);}
-.sevn{font-family:var(--mono);font-size:.72rem;color:var(--muted);margin-left:.5rem;}
-
-/* pattern index */
-.index{margin:0 0 3rem;border:1px solid var(--rule);overflow:hidden;max-width:52rem;}
-.ix{display:grid;grid-template-columns:4.2rem minmax(0,1fr) 7.5rem 4rem;align-items:center;gap:.9rem;
-  padding:.7rem .9rem;border-bottom:1px solid var(--rule);text-decoration:none;color:var(--ink);}
-.ix:last-child{border-bottom:0;}
-.ix:hover{background:var(--blue-soft);}
-.ix-n{font-size:.92rem;}
-.ix .pill{justify-self:start;}
-
-/* fw */
-.fw{margin:0 0 3.5rem;}
-
-/* footer */
-.foot{padding:3rem 3.2rem;color:var(--muted);font-family:var(--mono);font-size:.68rem;line-height:1.7;}
-
-/* cover / title spread */
-.cover{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;
-  padding:4rem 2rem;text-align:center;overflow:hidden;
-  background:linear-gradient(180deg,#232f3b 0%,#2b3a48 38%,#3a4a58 60%,#8a9096 82%,#e6e8ea 93%,#ffffff 100%);}
-.cover::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;opacity:.4;mix-blend-mode:overlay;
-  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");}
-.cover-inner{position:relative;z-index:1;max-width:46rem;}
-.cover-kick{font-size:.66rem;font-weight:600;letter-spacing:.24em;text-transform:uppercase;
-  color:rgba(240,236,228,.72);margin:0 0 2.6rem;}
-.cover-title{font-size:clamp(3.4rem,13vw,7.5rem);line-height:.9;font-weight:700;letter-spacing:-.045em;
-  margin:0 0 1.8rem;color:#ffffff;}
-.cover-title span{display:block;color:#e79a5f;}
-.cover-sub{font-size:clamp(1.05rem,2.2vw,1.4rem);line-height:1.4;font-weight:400;color:rgba(240,236,228,.82);
-  max-width:34rem;margin:0 auto 2.8rem;}
-.cover-by{font-size:1.2rem;font-weight:600;letter-spacing:.01em;margin:0 0 .5rem;color:#f4f1ea;}
-.cover-ed{font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;
-  color:rgba(240,236,228,.5);margin:0 0 3rem;}
-.cover-begin{display:inline-block;font-size:.66rem;letter-spacing:.14em;font-weight:600;
-  text-transform:uppercase;color:#f4f1ea;background:rgba(244,241,234,.08);
-  border:1px solid rgba(244,241,234,.28);padding:.85rem 1.8rem;text-decoration:none;}
-.cover-begin:hover{background:rgba(244,241,234,.18);}
-
-/* epigraph masthead */
-.mast .epigraph{font-family:var(--serif);font-size:clamp(1.25rem,2.5vw,1.7rem);line-height:1.4;
-  font-style:italic;color:var(--ink);max-width:38rem;margin:0 0 2.8rem;}
-
-/* advance praise */
-.praise{max-width:46rem;display:flex;flex-direction:column;}
-.pq{margin:0;padding:2rem 0;border-top:1px solid var(--rule);}
-.pq:first-child{border-top:0;padding-top:.5rem;}
-.pq p{font-family:var(--serif);font-size:1.18rem;line-height:1.45;font-style:italic;color:var(--ink);
-  max-width:38rem;margin:0 0 1rem;}
-.pq cite{font-style:normal;display:flex;flex-direction:column;gap:.15rem;}
-.pq-name{font-family:var(--serif);font-weight:600;font-size:1rem;color:var(--ink);}
-.pq-role{font-family:var(--mono);font-size:.64rem;letter-spacing:.09em;text-transform:uppercase;color:var(--blue);}
-
-/* feedback */
-.feedback{text-align:center;}
-.fb-inner{max-width:40rem;margin:0 auto;}
-.feedback .eyebrow,.feedback h1,.feedback .standfirst{margin-left:auto;margin-right:auto;}
-.fb-btn{display:inline-block;font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;
-  text-transform:uppercase;font-weight:600;background:var(--blue);color:#fff;
-  padding:.95rem 2.2rem;text-decoration:none;border:0;margin:.6rem 0 1.3rem;}
-.fb-btn:hover{background:#0f3fa8;}
-.fb-alt{font-family:var(--mono);font-size:.72rem;color:var(--muted);}
-.fb-alt a{border-bottom:1px solid var(--blue-line);}
-
-.thanks{position:fixed;inset:0;z-index:70;display:none;align-items:center;justify-content:center;background:rgba(11,13,18,.5);padding:1.2rem;}
-.thanks.show{display:flex;}
-.thanks-card{background:#fff;max-width:23rem;width:100%;padding:2.2rem 2rem;text-align:center;box-shadow:0 30px 70px -20px rgba(20,40,80,.5);}
-.thanks-ic{width:2.6rem;height:2.6rem;border-radius:50%;background:var(--blue);color:#fff;display:flex;align-items:center;justify-content:center;font-size:1.15rem;margin:0 auto 1.1rem;}
-.thanks-card h3{font-size:1.5rem;font-weight:700;color:var(--ink);margin:0 0 .6rem;letter-spacing:-.02em;}
-.thanks-card p{font-size:.98rem;line-height:1.5;color:var(--muted);margin:0 0 1.5rem;}
-.thanks-btn{font-size:.64rem;letter-spacing:.12em;text-transform:uppercase;font-weight:700;background:var(--blue);color:#fff;border:0;padding:.7rem 1.5rem;cursor:pointer;}
-.thanks-btn:hover{background:#0f3fa8;}
-
-/* join the research */
-.subscribe{max-width:34rem;margin:0 0 2.4rem;}
-.sub-pitch{font-size:1rem;color:var(--ink);margin:0 0 1rem;line-height:1.5;}
-.sub-pitch b{font-weight:600;}
-.sub{display:flex;gap:.7rem;flex-wrap:wrap;align-items:center;}
-.sub input{flex:1 1 15rem;min-width:0;font-family:var(--serif);font-size:1rem;color:var(--ink);
-  background:transparent;border:0;border-bottom:1px solid var(--rule);padding:.55rem .2rem;}
-.sub input::placeholder{color:var(--muted);}
-.sub input:focus{outline:none;border-bottom-color:var(--blue);}
-.sub button{flex:none;font-family:var(--mono);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;
-  font-weight:600;background:var(--blue);color:#fff;border:0;padding:.72rem 1.4rem;cursor:pointer;}
-.sub button:hover{background:#0f3fa8;}
-.sub-print{display:none;}
-.support{max-width:34rem;margin-top:1.8rem;color:var(--muted);font-size:.98rem;}
-.support a{color:var(--blue);border-bottom:1px solid var(--blue-line);}
-
-/* end-of-book coffee reveal: non-blocking, dismissible, never covers the text */
-.coffee{position:fixed;left:50%;bottom:1.1rem;transform:translate(-50%,160%);
-  z-index:20;display:flex;align-items:center;gap:.9rem;max-width:min(30rem,92vw);
-  background:#fff;border:1px solid var(--rule);box-shadow:0 12px 34px -14px rgba(20,40,80,.4);
-  padding:.85rem 1rem .85rem 1.1rem;transition:transform .5s cubic-bezier(.2,.8,.2,1);}
-.coffee.show{transform:translate(-50%,0);}
-.coffee-cup{width:1.5rem;height:1.5rem;color:var(--blue);flex:none;}
-.coffee-t{display:flex;flex-direction:column;gap:.1rem;min-width:0;}
-.coffee-t b{font-family:var(--serif);font-size:.92rem;font-weight:600;}
-.coffee-t span{font-family:var(--mono);font-size:.66rem;color:var(--muted);letter-spacing:.01em;line-height:1.4;}
-.coffee-btn{flex:none;font-family:var(--mono);font-size:.66rem;letter-spacing:.06em;text-transform:uppercase;
-  font-weight:600;background:var(--blue);color:#fff;padding:.55rem .85rem;text-decoration:none;white-space:nowrap;}
-.coffee-btn:hover{background:#0f3fa8;}
-.coffee-x{position:absolute;top:-.6rem;right:-.6rem;width:1.5rem;height:1.5rem;border-radius:50%;
-  border:1px solid var(--rule);background:#fff;color:var(--muted);font-size:1rem;line-height:1;cursor:pointer;
-  display:flex;align-items:center;justify-content:center;}
-.coffee-x:hover{color:var(--ink);}
-@media (prefers-reduced-motion:reduce){.coffee{transition:none;}}
-@media (max-width:520px){.coffee{flex-wrap:wrap;gap:.6rem;bottom:.6rem;}.coffee-t{flex:1 1 100%;order:2;}}
-
-.contact{max-width:34rem;display:flex;flex-direction:column;}
-.ct{display:flex;align-items:center;gap:1rem;padding:1rem 0;border-bottom:1px solid var(--rule);
-  text-decoration:none;border-left:0;color:var(--ink);}
-.ct:first-child{border-top:1px solid var(--rule);}
-.ct:hover .ct-t b{color:var(--blue);}
-.ct-i{flex:none;width:2.2rem;height:2.2rem;display:flex;align-items:center;justify-content:center;color:var(--blue);}
-.ci{width:1.35rem;height:1.35rem;display:block;}
-.ct-t{display:flex;flex-direction:column;gap:.1rem;}
-.ct-t b{font-family:var(--serif);font-size:1.02rem;font-weight:600;}
-.ct-t span{font-family:var(--mono);font-size:.74rem;color:var(--muted);letter-spacing:.02em;}
-
-/* table of contents */
-.toc{max-width:46rem;}
-.toc-part{font-size:.62rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;
-  color:var(--blue);margin:2.6rem 0 .5rem;}
-.toc-part:first-child{margin-top:0;}
-.toc-list{list-style:none;margin:0;padding:0;}
-.toc-item{margin:0;}
-.toc-head{display:flex;align-items:baseline;gap:.7rem;text-decoration:none;color:var(--ink);
-  border-bottom:0;padding:.4rem 0;}
-.toc-head:hover .toc-t{color:var(--blue);}
-.toc-n{font-family:var(--mono);font-size:.8rem;color:var(--muted);min-width:1.9rem;
-  font-variant-numeric:tabular-nums;flex:none;}
-.toc-t{font-size:1.05rem;font-weight:600;}
-.toc-note{font-family:var(--mono);font-size:.6rem;letter-spacing:.05em;text-transform:uppercase;
-  color:var(--muted);}
-.toc-sub{list-style:none;margin:.1rem 0 .7rem;padding:0 0 0 2.6rem;
-  display:grid;grid-template-columns:1fr 1fr;gap:0 1.6rem;}
-.toc-sub li{margin:0;}
-.toc-sub a{font-family:var(--serif);font-size:.86rem;color:var(--muted);text-decoration:none;
-  border-bottom:0;line-height:1.5;display:block;padding:.12rem 0;}
-.toc-sub a:hover{color:var(--blue);}
-
-.navtoggle{display:none;position:fixed;top:.9rem;right:.9rem;z-index:50;width:2.7rem;height:2.7rem;
-  background:#fff;border:1px solid var(--rule);flex-direction:column;align-items:center;justify-content:center;gap:5px;cursor:pointer;padding:0;}
-.navtoggle span{display:block;width:1.3rem;height:2px;background:var(--ink);transition:transform .3s,opacity .3s;}
-.navtoggle.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
-.navtoggle.open span:nth-child(2){opacity:0;}
-.navtoggle.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
-.scrim{display:none;position:fixed;inset:0;z-index:44;background:rgba(11,13,18,.4);}
-.scrim.show{display:block;}
-
-@media (max-width:940px){
-  :root{--measure:100%;}
-  .wrap{grid-template-columns:1fr;}
-  .navtoggle{display:flex;}
-  .rail{position:fixed;top:0;left:0;bottom:0;width:80%;max-width:19rem;z-index:45;background:#fff;
-    height:100vh;overflow-y:auto;transform:translateX(-100%);transition:transform .3s ease;
-    border-right:1px solid var(--rule);border-bottom:0;padding:2rem 1.5rem;}
-  .rail.open{transform:translateX(0);}
-  .rail nav{display:block;}
-  .navg{margin:1.1rem 0 .3rem;}
-  .rail a{padding:.4rem 0;}
-  .mast,.doc,.foot{padding-left:1.3rem;padding-right:1.3rem;}
-  .mast{padding-top:3rem;}
-  .wrap{grid-template-columns:1fr !important;}
-  main{min-width:0;max-width:100%;overflow-x:hidden;}
-  .doc,.mast,.cover{max-width:100vw;}
-  .mermaid svg,.plate svg,figure svg,img{max-width:100% !important;height:auto !important;}
-  .tablewrap,pre.block{max-width:100%;overflow-x:auto;}
-  .cover{min-height:64vh;padding:4.5rem 1.3rem 3rem;display:block;text-align:center;}
-  .cover-inner{width:auto;max-width:100%;margin:0;}
-  main{min-width:0;}
-  .doc,.mast{min-width:0;overflow-x:hidden;}
-  .cover-kick{font-size:.55rem;letter-spacing:.08em;line-height:1.6;}
-  .cover-title{font-size:clamp(1.9rem,10vw,2.5rem);letter-spacing:-.03em;line-height:.95;}
-  .cover-sub{font-size:1.05rem;max-width:100%;}
-  .cover-by{font-size:1.05rem;}
-  .cover-begin{display:block;width:100%;text-align:center;box-sizing:border-box;margin:0 0 .7rem 0 !important;}
-  .mast .epigraph{font-size:1.2rem;}
-  .stats{gap:1.2rem 2rem;}
-  .toc-sub{grid-template-columns:1fr;padding-left:1.9rem;}
-  table{font-size:.8rem;}
-  th,td{padding:.45rem .5rem;}
-  .p-meta{gap:1rem;}
-}
-@media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important;}}
-html{scroll-behavior:smooth;overflow-x:clip;}
-a.toc-dead{color:inherit;text-decoration:none;cursor:default}</style>
-<style>
-  .pdfgate{position:fixed;inset:0;z-index:60;display:none;align-items:center;justify-content:center;
-    background:rgba(11,13,18,.5);padding:1.2rem;}
-  .pdfgate.show{display:flex;}
-  .pg-card{position:relative;background:#fff;max-width:30rem;width:100%;padding:0;overflow:hidden;
-    font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;box-shadow:0 30px 70px -20px rgba(20,40,80,.5);}
-  .pg-hero{height:140px;background:#0b0d12 url("mona.jpg") 50% 20% / cover no-repeat;
-    filter:saturate(.82) contrast(.98);position:relative;}
-  .pg-hero::after{content:"";position:absolute;inset:0;
-    background:linear-gradient(180deg,rgba(255,255,255,0) 34%,rgba(255,255,255,.72) 80%,#fff 100%);}
-  .pg-body{padding:1.5rem 2rem 2rem;}
-  .pg-x{position:absolute;top:.6rem;right:.8rem;z-index:2;width:1.9rem;height:1.9rem;border-radius:50%;
-    background:rgba(11,13,18,.42);border:0;font-size:1.15rem;line-height:1;color:#fff;cursor:pointer;
-    display:flex;align-items:center;justify-content:center;backdrop-filter:blur(2px);}
-  .pg-x:hover{background:rgba(11,13,18,.7);}
-  .pg-eyebrow{font-size:.6rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#1550c8;margin:0 0 .6rem;}
-  .pg-card h3{font-size:1.35rem;font-weight:700;letter-spacing:-.02em;color:#0b0d12;margin:0 0 .7rem;line-height:1.15;}
-  .pg-sub{font-size:.92rem;line-height:1.5;color:#3f4a5a;margin:0 0 1.3rem;}
-  .pg-sub a{color:#1550c8;}
-  .pg-form{display:flex;gap:.6rem;flex-wrap:wrap;}
-  .pg-form input{flex:1 1 12rem;min-width:0;font-family:inherit;font-size:1rem;color:#0b0d12;
-    background:transparent;border:0;border-bottom:1px solid #d7dde6;padding:.55rem .1rem;}
-  .pg-form input:focus{outline:none;border-bottom-color:#1550c8;}
-  .pg-form button{flex:none;font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
-    background:#1550c8;color:#fff;border:0;padding:.75rem 1.3rem;cursor:pointer;}
-  .pg-form button:hover{background:#0f3fa8;}
-</style>
-<style>
-/* hero: the spread sits beside the title on wide screens, above it on phones */
-.cover{text-align:left;padding:clamp(3.5rem,9vh,6rem) clamp(1.3rem,5vw,2.4rem);}
-.cover-stage{position:relative;z-index:1;width:100%;max-width:76rem;margin:0 auto;
-  display:grid;grid-template-columns:1fr;gap:2.4rem;align-items:center;}
-.cover-inner{max-width:34rem;}
-.cover-sub{margin-left:0;margin-right:0;}
-.hero-shot{margin:0;order:-1;}
-.hero-shot img{display:block;width:100%;height:auto;border-radius:2px;
-  box-shadow:0 46px 90px -34px rgba(3,8,16,.85);}
-.hero-cap{margin-top:.8rem;font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;
-  color:rgba(240,236,228,.55);}
-.cover-begin{background:rgba(12,18,26,.78)!important;border-color:rgba(244,241,234,.26)!important;color:#f4f1ea!important;backdrop-filter:blur(2px);}
-.cover-begin:hover{background:rgba(12,18,26,.92)!important;}
-@media(min-width:62rem){
-  .cover-stage{grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr);gap:3.6rem;}
-  .hero-shot{order:0;}
-  .hero-cap{color:rgba(60,70,84,.62);}
-}
-</style>
-</head><body>
-<header class="cover" id="cover">
-  <div class="cover-stage">
-  <div class="cover-inner">
-    <p class="cover-kick">A field guide to the hidden cost of persuasive design</p>
-    <h1 class="cover-title">Behavioral<span>Debt</span></h1>
-    <p class="cover-sub">What persuasive design really costs, and how to build products that do not borrow against trust.</p>
-    <p class="cover-by">Amogh Tiwari</p>
-    <p class="cover-ed">Working manuscript · Draft edition · 2026</p>
-    <a class="cover-begin" href="#thesis">Read the preview</a><a class="cover-begin" href="#gate" style="margin-left:.7rem">Get the full manuscript</a>
-  </div>
-  <figure class="hero-shot">
-    <img src="hero-1200.jpg" srcset="hero-1200.jpg 1200w, hero.jpg 2400w" sizes="(min-width:62rem) 52vw, 92vw" width="1200" height="800" alt="An open spread of the Behavioral Debt manuscript: the title page with the engagement and trust curves, facing the argument in one sentence.">
-  </figure>
-</div>
-</header>
-<button class="navtoggle" id="navtoggle" aria-label="Menu"><span></span><span></span><span></span></button>
-<div class="scrim" id="scrim"></div>
-<div class="wrap">
-  <aside class="rail">
-    <p class="brand"><b>Behavioral Debt</b>Amogh Tiwari · draft edition · preview</p>
-    <nav><p class="navg">This preview</p><a href="#cover" data-nav="cover">Cover</a><a href="#thesis" data-nav="thesis">The argument</a><a href="#contents" data-nav="contents">Contents</a><a href="#inside" data-nav="inside">What is inside</a><a href="#sample" data-nav="sample">Sample entry, A-01</a><p class="navg">Full manuscript</p><a href="#gate" data-nav="gate">Get access by email</a><a href="#join" data-nav="join">Push back, help build it</a><p class="navg">Elsewhere</p><a href="https://amoghtiwari.com/">amoghtiwari.com</a></nav>
-  </aside>
-  <main>
-    <header class="mast" id="thesis">
-      <p class="kicker">The argument in one sentence</p>
-      <p class="epigraph">Persuasive software works by borrowing against the user's trust. The debt is invisible because no dashboard has a line for it. It compounds until a product is most hated at the exact moment it looks most engaged. The only real repayment is a design that gives the user back what was taken.</p>
-    </header><section id="contents" class="doc"><p class="eyebrow">Contents</p><h1>What is in the book</h1><p class="standfirst">Three chapters written to publication quality, the full taxonomy, six original frameworks, and nine pattern entries. Every subsection below is a link. The remaining chapters of the trade edition are planned but not yet drafted.</p><div class="toc"><p class="toc-part">Front matter</p><ol class="toc-list"><li class="toc-item"><a class="toc-head" href="#method"><span class="toc-n"></span><span class="toc-t">The constitution</span><span class="toc-note">the rules the book is written against</span></a></li></ol><p class="toc-part">Part I. The chapters</p><ol class="toc-list"><li class="toc-item"><a class="toc-head" href="#ch1"><span class="toc-n">01</span><span class="toc-t">How Software Changes What You Do</span></a><ol class="toc-sub"><li><a class="toc-dead">1.1 Software is not a tool, it is a behavioral environment</a></li><li><a class="toc-dead">1.2 Why consumer software matters</a></li><li><a class="toc-dead">1.3 The environment argument</a></li><li><a class="toc-dead">1.4 Defining behavioral design</a></li><li><a class="toc-dead">1.5 Every interface changes behavior</a></li><li><a class="toc-dead">1.6 The Behavioral Design Stack</a></li><li><a class="toc-dead">1.7 Three levels of design</a></li><li><a class="toc-dead">1.8 The Behavior Loop</a></li><li><a class="toc-dead">1.9 The consumer software engine</a></li><li><a class="toc-dead">1.10 The ethical spectrum, and the concept of valence</a></li><li><a class="toc-dead">1.11 Why patterns exist</a></li><li><a class="toc-dead">1.12 Research objectives and contribution</a></li><li><a class="toc-dead">Key Takeaways</a></li><li><a class="toc-dead">Open Questions</a></li><li><a class="toc-dead">References</a></li></ol></li><li class="toc-item"><a class="toc-head" href="#ch2"><span class="toc-n">02</span><span class="toc-t">How the Money Shaped the Software</span></a><ol class="toc-sub"><li><a class="toc-dead">2.0 The argument: selection, not invention</a></li><li><a class="toc-dead">2.1 The licence era: software as a purchased good</a></li><li><a class="toc-dead">2.2 The pageview era: attention becomes the product</a></li><li><a class="toc-dead">2.3 Web 2.0 and the social graph: the user becomes the content</a></li><li><a class="toc-dead">2.4 The mobile era: the environment acquires a body</a></li><li><a class="toc-dead">2.5 The engagement economy: the metric becomes the objective function</a></li><li><a class="toc-dead">2.6 Subscription, and the return of monetization friction</a></li><li><a class="toc-dead">2.7 The regulatory turn, 2018 to 2026</a></li><li><a class="toc-dead">2.8 The AI era, 2023 to 2026: what is actually new</a></li><li><a class="toc-dead">2.9 What history shows</a></li><li><a class="toc-dead">Key Takeaways</a></li><li><a class="toc-dead">Open Questions</a></li><li><a class="toc-dead">References</a></li></ol></li><li class="toc-item"><a class="toc-head" href="#ch3"><span class="toc-n">03</span><span class="toc-t">What the Screen Does to Your Brain</span></a><ol class="toc-sub"><li><a class="toc-dead">3.0 How to read this chapter</a></li><li><a class="toc-dead">3.1 Dual-process cognition, and the organizing claim of this chapter</a></li><li><a class="toc-dead">3.2 Attention</a></li><li><a class="toc-dead">3.3 Perception and salience</a></li><li><a class="toc-dead">3.4 Memory and cognitive load</a></li><li><a class="toc-dead">3.5 Habit formation</a></li><li><a class="toc-dead">3.6 Motivation, intrinsic and extrinsic</a></li><li><a class="toc-dead">3.7 Loss aversion and the endowment effect</a></li><li><a class="toc-dead">3.8 Goals, progress, and resumption</a></li><li><a class="toc-dead">3.9 Social cognition</a></li><li><a class="toc-dead">3.10 Emotion and affect</a></li><li><a class="toc-dead">3.11 The limits of this substrate</a></li><li><a class="toc-dead">Key Takeaways</a></li><li><a class="toc-dead">Open Questions</a></li><li><a class="toc-dead">References</a></li></ol></li></ol><p class="toc-part">Reference and apparatus</p><ol class="toc-list"><li class="toc-item"><a class="toc-head" href="#taxonomy"><span class="toc-n"></span><span class="toc-t">The taxonomy</span><span class="toc-note">116 patterns, 9 families</span></a></li><li class="toc-item"><a class="toc-head" href="#frameworks"><span class="toc-n"></span><span class="toc-t">The frameworks</span></a><ol class="toc-sub"><li><a class="toc-dead">The Behavioral Influence Model (BIM)</a></li><li><a class="toc-dead">The Behavioral Cost Index (BCI)</a></li><li><a class="toc-dead">Four Supporting Frameworks</a></li></ol></li><li class="toc-item"><a class="toc-head" href="#library"><span class="toc-n"></span><span class="toc-t">The pattern library</span><span class="toc-note">nine of the 116, full template</span></a><ol class="toc-sub"><li><a class="toc-dead">A-01  Infinite Scroll</a></li><li><a class="toc-dead">B-09  Permission Priming</a></li><li><a class="toc-dead">C-01  Streak</a></li><li><a class="toc-dead">D-05  Public Metrics</a></li><li><a class="toc-dead">E-03  Contact Harvesting</a></li><li><a class="toc-dead">F-09  Roach Motel</a></li><li><a class="toc-dead">G-01  Consent Asymmetry</a></li><li><a class="toc-dead">H-01  Cancellation Maze</a></li><li><a class="toc-dead">I-03  Frictionless Exit</a></li></ol></li><li class="toc-item"><a class="toc-head" href="#sources"><span class="toc-n"></span><span class="toc-t">Sources</span><span class="toc-note">38 verified, 5 corrections</span></a></li></ol><p class="toc-part">Back matter</p><ol class="toc-list"><li class="toc-item"><a class="toc-head" href="#join"><span class="toc-n"></span><span class="toc-t">Join the research</span><span class="toc-note">reach out and push back</span></a></li></ol></div></section><section id="inside" class="doc"><p class="eyebrow">What is inside</p><h1>The opening of each part</h1><p class="standfirst">Every chapter and every apparatus section begins with the question it answers. Those openings are below in full. The bodies are in the manuscript.</p></section><section id="ch1" class="doc"><p class="eyebrow">Chapter 01</p><h1>How Software Changes What You Do</h1><blockquote><p><strong>The question this chapter answers:</strong> How does software change human behavior?</p>
-<p>It answers that question and no other. It does not yet ask whether the change is good, whether it is legal, or what should be done about it. Those are Chapters 2 through 9. This chapter establishes only the mechanism, because every normative argument later in the document depends on the mechanism being described correctly first.</p></blockquote></section><section id="ch2" class="doc"><p class="eyebrow">Chapter 02</p><h1>How the Money Shaped the Software</h1><blockquote><p><strong>The question this chapter answers:</strong> Where did the patterns come from?</p>
-<p>Chapter 1 established that consumer software is a behavioral environment and that its gradients are set by a counterparty with a measured interest in the outcome. It did not ask how that came to be true. This chapter does. It argues that the behavioral patterns catalogued in <code class="tok">TAXONOMY.md</code> were not invented by designers who became cynical. They were <strong>selected for</strong> by a sequence of business models, each of which changed what a company could charge for, and therefore what it needed to measure, and therefore what it built.</p>
-<p>A note on method before anything else. History is dates and numbers, and dates and numbers are exactly what a language model will confidently misremember. Every launch year, acquisition price, statutory citation, and enforcement figure in this chapter was retrieved from a source recorded in the References, per the Citation Law (<code class="tok">PROJECT.md</code>, section 2). Where a claim could not be retrieved to that standard, it is either written without the number or marked <span class="mark mark-gap">citation needed</span>. Several claims that are near-universal in the popular history of this industry appear here marked as unverified, and the list of what had to be dropped is given at the end of the chapter rather than hidden.</p></blockquote></section><section id="ch3" class="doc"><p class="eyebrow">Chapter 03</p><h1>What the Screen Does to Your Brain</h1><blockquote><p><strong>The question this chapter answers:</strong> What, precisely, is an interface acting <em>on</em>?</p>
-<p>Chapter 1 established that software is a behavioral environment and that its gradients are set by a counterparty. It did not say what those gradients push against. This chapter does. Interfaces do not act on &quot;the user,&quot; which is a category too coarse to design against and too coarse to regulate. They act on specific, identifiable cognitive machinery: an attentional bottleneck, a salience-driven perceptual system, a capacity-limited working memory, a reinforcement-sensitive habit system, a motivational system that can be corrupted by its own rewards, a value function that is asymmetric around a reference point, a goal system that resumes what it has left unfinished, a social-inference system, and an affective system that can be loaded with anxiety on demand.</p>
-<p>For every one of those mechanisms, this chapter names the taxonomy pattern IDs that exploit it. That mapping is the chapter&#x27;s contribution. It is the bridge between the psychology and the pattern library, and after this chapter a reader should be able to look at any interface and name the cognitive system being addressed.</p></blockquote></section><section id="taxonomy" class="doc"><p class="eyebrow">The spine</p></section><section id="frameworks" class="doc"><p class="eyebrow">Original contributions</p></section><section id="library" class="doc"><p class="eyebrow">The library</p></section><section id="sources" class="doc"><p class="eyebrow">Apparatus</p></section><section id="sample" class="doc"><p class="eyebrow">Sample entry</p><h1>One of the nine, in full</h1><p class="standfirst">Every pattern entry in the library is written to the same template: definition, psychological basis, interface expression, business rationale, valence analysis, behavioral cost index, regulatory status, ethical alternative, related patterns, sources. This is A-01, complete and unedited.</p><article class="entry"><header class="p-head">
-  <div class="p-id"><span class="p-chip">A-01</span></div>
-  <h2 id="a-01">Infinite Scroll</h2>
-  <dl class="p-meta">
-    <div><dt>Family</dt><dd>A, Attention and Capture</dd></div>
-    <div><dt>Stage</dt><dd>Habit</dd></div>
-    <div><dt>Valence</dt><dd><span class="pill v-man">Persuasive → Manipulative</span></dd></div>
-    <div><dt>Severity ceiling</dt><dd><span class="sev"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="off"></i></span><span class="sevn">4/5</span></dd></div>
-  </dl>
-</header><h4 id="a-01-definition">Definition</h4>
-<p>Infinite scroll is a content-loading strategy in which the next batch of items is fetched and appended automatically as the user approaches the end of the current batch, so that the list never terminates. Its behavioral significance is not what it adds but what it <strong>removes</strong>: the page boundary. A paginated list ends, and its ending forces a decision (&quot;do I click next?&quot;). An infinitely scrolling list never ends, so continuing requires no decision at all, and stopping becomes the only act that requires one. The pattern relocates the burden of choice from continuation to cessation. Identifying it in the wild is trivial: if you can reach the bottom of the content and the bottom moves, it is infinite scroll.</p>
-<h4 id="a-01-pattern-dna">Pattern DNA</h4>
-<p><strong>Goal</strong> maximise session length and impressions per session → <strong>Trigger</strong> the scroll gesture itself, which is self-triggering and requires no external prompt → <strong>Interface</strong> a continuous list with pre-fetched content below the fold and no terminal boundary, often paired with a zero-latency loader (A-08) so no pause is visible → <strong>Bias</strong> the absence of a decision point; default-continuation, and (where content is algorithmically ordered) intermittent reinforcement → <strong>Emotion</strong> low-arousal absorption, then, characteristically, regret on exit → <strong>Decision</strong> none; the user does not decide to continue, they simply fail to decide to stop → <strong>Behavior</strong> extended, poorly time-tracked consumption → <strong>Reward</strong> the next item, whose value is variable and therefore reinforcing (C-02) → <strong>Business metric</strong> time in app, impressions, ad inventory served.</p>
-<p><strong>The link that breaks on disclosure:</strong> <em>Interface</em>. The chain does not depend on the user misunderstanding anything (most users know feeds are endless), which is why infinite scroll is not automatically manipulative. It depends on the <em>absence of a stopping cue</em>, and restoring the cue (I-06) destroys the effect while leaving the honest part of the product intact. This is a rare and instructive case: the pattern&#x27;s power lies in an omission rather than a deception.</p>
-<h4 id="a-01-psychological-basis">Psychological basis</h4>
-<p>The mechanism is <strong>decision architecture, not persuasion</strong>. Nothing is claimed to the user; a choice is simply never presented. Thaler and Sunstein&#x27;s concept of choice architecture is the correct frame, and their later term <strong>sludge</strong> (friction that keeps people from what they <em>do</em> want) is the mirror image of what happens here: infinite scroll removes friction from a behavior the user does not, on reflection, want more of. Cite the framework, not an effect size. There is no defensible pooled &quot;nudge effect size,&quot; and none is asserted here.</p>
-<p>Two further mechanisms are commonly attached, with unequal support:</p>
-<ol><li><strong>Variable reward.</strong> Where the feed is algorithmically ordered, each successive item is a draw from an unpredictable distribution, which is structurally a variable-ratio schedule (<strong>Ferster &amp; Skinner 1957</strong>). The application of operant scheduling to feed consumption is an <strong>analogy</strong>, not a finding in that literature, and is labelled as such.</li><li><strong>Loss of temporal awareness.</strong> The claim that infinite scroll degrades the user&#x27;s estimate of elapsed time is plausible and is the basis of the adjacent pattern A-13, but no empirical source for it has been retrieved. <span class="mark mark-gap">citation needed</span></li></ol>
-<p>The distinctive point, and the one the literature under-states: infinite scroll requires <strong>no cognitive bias at all</strong> to work. A perfectly rational agent, fully informed, still continues, because continuation is free and stopping is not. That makes it unusually resistant to the standard remedy of disclosure, and it is why this pattern needs a <em>structural</em> fix (I-06) rather than an informational one.</p>
-<h4 id="a-01-interface-expression">Interface expression</h4>
-<ul><li>A vertically scrolling list with no terminal element and no page count.</li><li>Pre-fetching, so the loading spinner is either absent or sub-perceptual: the boundary is not merely crossed, it is made invisible (A-08 Zero-Latency Feed).</li><li>Absence of session-length cues: no clock, no &quot;you have been here 40 minutes,&quot; no item counter (A-13 Temporal Disorientation).</li><li>Frequently combined with autoplay (A-02) in video feeds, at which point even the scroll gesture becomes optional and consumption is fully passive.</li></ul>
-<h4 id="a-01-real-world-examples">Real-world examples</h4>
-<p><strong>Attribution.</strong> Aza Raskin is widely credited with inventing infinite scroll and has publicly said he regrets it. This is now on the record in a proceeding rather than only in interviews: Raskin testified at the State of New Mexico&#x27;s trial against Meta, where he was reported as saying he invented the feature and regrets a creation that traps users in endless scrolling and leads to wasted hours. This is reported testimony, and it is his own characterisation of his invention, not an independent finding of harm. The year of invention (commonly given as 2006) is <strong>not verified against a retrieved primary source</strong>. <span class="mark mark-gap">citation needed</span></p>
-<p><strong>Meta (Facebook, Instagram).</strong> Infinite scroll is named explicitly in the bipartisan state attorneys-general litigation filed against Meta on 24 October 2023, which alleges that Meta designed and deployed features encouraging addictive behavior in minors, specifically identifying algorithmic ordering, high-volume alerts and notifications, and infinite scroll through platform feeds. These are <strong>allegations in pleadings</strong>. They establish that the pattern is contested at law and that regulators regard the feed&#x27;s endlessness as a designed property rather than an accident. They do not by themselves establish harm.</p>
-<p><strong>Regulatory naming.</strong> The European Parliament resolution of 12 December 2023 (adopted 545 in favour, 12 against, 61 abstentions) calls for assessment and possible bans on addictive techniques not covered by the Unfair Commercial Practices Directive, and names <strong>&quot;infinite scroll, default auto play, constant push and read receipt notifications&quot;</strong> among them. This is the clearest instance in the taxonomy of a regulator naming a specific interface mechanism rather than a category of deception.</p>
-<p>No screenshot-level description of any current product interface is offered here, because interfaces change and memory of a past interface is not evidence about the present one (<code class="tok">PROJECT.md</code> §7 evidence rule).</p>
-<h4 id="a-01-business-rationale">Business rationale</h4>
-<p>Session length is the numerator of nearly every attention-economy metric. Pagination imposes a decision point per page, and every decision point is an exit opportunity: a user who has to click &quot;next&quot; will sometimes decide not to. Infinite scroll removes those exits without removing any content. It costs almost nothing to implement, requires no additional content investment, and its benefit compounds with ad load, since more scroll depth is more inventory. Critically, it moves the metric <strong>without any claim being made to the user</strong>, which means it carries no obvious legal exposure under deception-based statutes. That is precisely why it is ubiquitous and why regulators have had to reach for new instruments (an addictive-design regime) rather than existing deception law.</p>
-<h4 id="a-01-behavioral-cost-index">Behavioral Cost Index</h4>
-<p>Scored per <code class="tok">frameworks/02</code>. The scale measures the gap between cost paid and cost understood.</p>
-<div class="tablewrap"><table><thead><tr><th>Axis</th><th>Score</th><th>Justification</th></tr></thead><tbody><tr><td>Time</td><td>4</td><td>The user spends materially more time than they intended, and would revise the behavior if the true elapsed total were made salient. The cost is real, large, and unaccounted.</td></tr><tr><td>Attention</td><td>4</td><td>Attention is <em>taken</em> rather than given: the continuation of the session is never re-decided, so no fresh grant of attention is ever made.</td></tr><tr><td>Memory</td><td>0</td><td>Nothing must be held in mind. This is the axis on which infinite scroll is genuinely cheap.</td></tr><tr><td>Trust</td><td>2</td><td>Users are broadly aware feeds are endless. On learning the mechanism they feel resigned rather than betrayed, which is a real and telling difference from, say, G-01.</td></tr><tr><td>Money</td><td>0</td><td>No direct charge.</td></tr><tr><td>Privacy</td><td>0</td><td>None intrinsic to the pattern. (The algorithmic ranking that usually accompanies it is A-09 and carries its own privacy cost.)</td></tr><tr><td>Emotion</td><td>3</td><td>Post-session regret is characteristic and is not disclosed. The user is not fully aware, in the moment, that the affect they will end with is dysphoric.</td></tr></tbody></table></div>
-<p><strong>Max = 4 → Manipulative</strong>, but only just, and the honest reading is that this pattern sits <strong>on the boundary</strong>. The two 4s are on Time and Attention, and both rest on the same claim: that awareness of the true cost would change behavior. That claim is arguable and is argued below rather than assumed. If a reader judges that users fully understand the time cost and accept it, the scores drop to 3 and the pattern is <strong>Persuasive</strong>. The instrument makes the disagreement precise instead of hiding it inside a severity number.</p>
-<h4 id="a-01-valence-analysis">Valence analysis</h4>
-<p><strong>The case for Persuasive.</strong> Infinite scroll deceives nobody. It makes no claim, hides no price, and misstates no fact. Users know that feeds do not end; the endlessness is not a secret. It also serves a genuine user preference: pagination in a browsing context is annoying, and the pattern was invented as a usability improvement, not as a trap. A user who wants to browse a long list of search results, or a photo archive, is <em>better served</em> by continuous loading. In those contexts, the pattern is not merely persuasive but ethical, and the taxonomy must be able to say so.</p>
-<p><strong>The case for Manipulative, which is the stronger one in feed contexts.</strong> The valence turns on a single question: <em>does the design work because the user does not understand what is happening to them?</em> The answer is subtle. The user understands the mechanism perfectly. What the user does not have is a <strong>stopping cue</strong>, and the absence of that cue is not an oversight, it is the feature. The design does not exploit a false belief; it exploits the structural fact that a decision never presented is a decision never made. Under the Disclosure Test, narrating the chain does not restore the missing boundary. You can tell the user exactly how infinite scroll works, and they will keep scrolling, because knowledge is not the thing they are short of.</p>
-<p>This is why the pattern deserves its own treatment rather than being folded into deception. It defines a class of manipulation that <strong>survives full disclosure</strong>, and that class is invisible to every taxonomy organised around the question &quot;how is the user being deceived?&quot; (Brignull; Mathur et al. 2019; Gray et al. 2018). The correct diagnostic here is not honesty but <strong>whose goal the momentum serves</strong> (Behavioral Gravity, <code class="tok">frameworks/03</code>).</p>
-<p><strong>Where the line actually falls.</strong> Infinite scroll is <em>Persuasive</em> when the content is finite and user-requested (a search result set, a user&#x27;s own photo library, a chronological feed of people they chose to follow) and <em>Manipulative</em> when it is combined with algorithmic ordering optimised for engagement (A-09), because the compound has no terminus <strong>in principle</strong>: the supply of content is unbounded and is selected to defeat cessation. The mechanism is the same; the compound is not.</p>
-<h4 id="a-01-ethical-alternative">Ethical alternative</h4>
-<p>The legitimate goal is a browsing experience without the annoyance of pagination. That goal does not require the removal of every boundary.</p>
-<ol><li><strong>I-06 Stopping Cue.</strong> Restore an end. A designed terminus (&quot;you are all caught up&quot;) gives the user a natural exit at zero cost to the honest part of the session. This is not hypothetical: end-of-feed markers have shipped in mainstream feed products. It forfeits scroll depth, which is exactly what makes it a genuine concession rather than a marketing gesture.</li><li><strong>Bounded batches with an explicit continue.</strong> Load 50 items, then require one deliberate action to load 50 more. This preserves the anti-pagination benefit (no page reloads, no lost place) while re-introducing a decision point. The cost to the user is one tap. The cost to the business is a measurable exit rate, which is the point.</li><li><strong>I-04 Usage Transparency.</strong> Surface elapsed session time and items consumed inside the feed, not buried in a settings screen. A product confident that its feed is worth the time can afford to show the time.</li><li><strong>I-05 Sufficiency Nudge.</strong> After a threshold the user set, actively suggest they stop. This is the only remedy that addresses the structural problem rather than the informational one, because it supplies the missing decision point on the user&#x27;s behalf.</li><li><strong>I-12 Consumption Budget.</strong> A user-set limit that the product enforces <em>against its own engagement interest</em>.</li></ol>
-<p>The test of good faith across all five: does the intervention cost the company a metric it could have kept? If not, it is not a remedy.</p>
-<h4 id="a-01-regulatory-status">Regulatory status</h4>
-<ul><li><strong>No jurisdiction currently prohibits infinite scroll.</strong></li><li><strong>European Union.</strong> The European Parliament&#x27;s own-initiative resolution of 12 December 2023 on addictive design of online services explicitly names infinite scroll and asks the Commission to assess and consider banning it where it is not already covered by the Unfair Commercial Practices Directive. A Parliament resolution is a political request, not a binding rule. Separately, &quot;dark patterns&quot; were codified into EU law in 2022 through the Digital Services Act, the Digital Markets Act, and the Data Act proposal (Gray et al. 2024). The DSA is understood to prohibit deceptive interface design by online platforms, but the specific provision and its wording were <strong>not retrieved for this document</strong> and are therefore <span class="mark mark-gap">citation needed</span>. The substantive point stands regardless: infinite scroll is not deception, so a deception-based prohibition would not obviously reach it, and that is precisely the gap the resolution identifies.</li><li><strong>United States.</strong> No federal rule. Infinite scroll appears as alleged conduct in the multistate attorneys-general litigation against Meta (filed 24 October 2023 in federal court by a bipartisan coalition of states, with further suits filed in state courts), brought under state consumer-protection statutes and COPPA. Unadjudicated.</li><li><strong>Note on the regulatory difficulty.</strong> Infinite scroll is the clearest example of why deception-based law struggles with behavioral design. Nothing false is said. Any effective regulation must therefore reach <em>architecture</em> rather than <em>representation</em>, which is a materially harder thing for a consumer-protection statute to do.</li></ul>
-<h4 id="a-01-related-patterns">Related patterns</h4>
-<ul><li><code class="tok pid">A-02</code> Autoplay, the same removal of a decision point applied to video.</li><li><code class="tok pid">A-08</code> Zero-Latency Feed, which conceals the batch boundary that would otherwise act as a residual cue.</li><li><code class="tok pid">A-09</code> Algorithmic Curation, the compound that converts this pattern from Persuasive to Manipulative.</li><li><code class="tok pid">A-13</code> Temporal Disorientation, the removal of the clock that would let the user price the Time cost.</li><li><code class="tok pid">C-02</code> Variable Reward, the reinforcement layer beneath an algorithmically ordered feed.</li><li><code class="tok pid">I-05</code> Sufficiency Nudge, <code class="tok pid">I-06</code> Stopping Cue, <code class="tok pid">I-04</code> Usage Transparency, <code class="tok pid">I-12</code> Consumption Budget: the ethical counterparts.</li></ul>
-<h4 id="a-01-sources">Sources</h4>
-<p>Verified project sources (see):</p>
-<ul><li>Thaler, R.H., &amp; Sunstein, C.R. (2021). <em>Nudge: The Final Edition</em>. New Haven: Yale University Press. (Choice architecture as a framework; &quot;sludge.&quot; Cited as a framework, <strong>not</strong> as an effect size: the pooled nudge effect is disputed under publication-bias correction.)</li><li>Ferster, C.B., &amp; Skinner, B.F. (1957). <em>Schedules of Reinforcement</em>. New York: Appleton-Century-Crofts. (Book-level citation; the extension to feed consumption is labelled an analogy.)</li><li>Gray, C.M., Kou, Y., Battles, B., Hoggatt, J., &amp; Toombs, A.L. (2018). &quot;The Dark (Patterns) Side of UX Design.&quot; CHI &#x27;18, Paper 534. DOI 10.1145/3173574.3174108.</li><li>Mathur, A., et al. (2019). &quot;Dark Patterns at Scale: Findings from a Crawl of 11K Shopping Websites.&quot; <em>PACM HCI</em> 3(CSCW), Art. 81. DOI 10.1145/3359183. (Cited for what its taxonomy does <em>not</em> cover: architectural, non-deceptive capture.)</li><li>Gray, C.M., Santos, C.T., Bielova, N., &amp; Mildner, T. (2024). &quot;An Ontology of Dark Patterns Knowledge: Foundations, Definitions, and a Pathway for Shared Knowledge-Building.&quot; CHI &#x27;24. DOI 10.1145/3613904.3642436. (Source for the DSA/DMA/CPRA codification context.)</li></ul>
-<p>Sources:</p>
-<ul><li>European Parliament, &quot;New EU rules needed to address digital addiction,&quot; press release 20231208IPR15767. <a href="https://www.europarl.europa.eu/news/en/press-room/20231208IPR15767/new-eu-rules-needed-to-address-digital-addiction" target="_blank" rel="noopener">https://www.europarl.europa.eu/news/en/press-room/20231208IPR15767/new-eu-rules-needed-to-address-digital-addiction</a> (vote 545/12/61; &quot;infinite scroll, default auto play, constant push and read receipt notifications&quot; quoted verbatim from the release).</li><li>KOB 4 (New Mexico), &quot;Inventor of infinite scroll says he regrets it at New Mexico Meta trial.&quot; <a href="https://www.kob.com/new-mexico/inventor-of-infinite-scroll-says-he-regrets-it-at-new-mexico-meta-trial/" target="_blank" rel="noopener">https://www.kob.com/new-mexico/inventor-of-infinite-scroll-says-he-regrets-it-at-new-mexico-meta-trial/</a> (Raskin&#x27;s testimony; publication date not stated on the retrieved page).</li><li>CNBC, &quot;Meta sued by 42 attorneys general alleging Facebook, Instagram features are addictive and target kids,&quot; 24 October 2023. <a href="https://www.cnbc.com/2023/10/24/bipartisan-group-of-ags-sue-meta-for-addictive-features.html" target="_blank" rel="noopener">https://www.cnbc.com/2023/10/24/bipartisan-group-of-ags-sue-meta-for-addictive-features.html</a> (infinite scroll named among the alleged features).</li><li>Office of the New York Attorney General, press release on the multistate Meta suit. <a href="https://ag.ny.gov/press-release/2023/attorney-general-james-and-multistate-coalition-sue-meta-harming-youth" target="_blank" rel="noopener">https://ag.ny.gov/press-release/2023/attorney-general-james-and-multistate-coalition-sue-meta-harming-youth</a></li></ul>
-<p><strong>Attribution status.</strong> <code class="tok">TAXONOMY.md</code> records A-01&#x27;s attribution to Aza Raskin as <strong>pending</strong>. The New Mexico trial reporting above corroborates that Raskin himself claims the invention, but a primary source for the invention itself (a 2006 artifact, patent, or contemporaneous publication) has <strong>not</strong> been retrieved. The attribution therefore remains <span class="mark mark-warn">attr pending</span> and the invention year is <span class="mark mark-gap">citation needed</span>.</p></article></section><section id="gate" class="doc">
-<p class="eyebrow">Full access</p>
-<h1>The rest of the book is by email</h1>
-<p class="standfirst">This preview is the argument, the contents, the opening of each chapter and one complete pattern entry. The full manuscript, all three chapters, the 116 pattern taxonomy, the six frameworks, the nine entries, the sources apparatus and the A4 PDF, is sent by email.</p>
-<div class="subscribe" style="margin-top:1.4rem">
-  <p class="sub-pitch"><b>Leave your email and I will send you the reader link and the PDF.</b> New chapters and the app audit go to the same list. One click to leave.</p>
-  <form class="sub" action="https://buttondown.com/api/emails/embed-subscribe/itsamoghtiwari" method="post" target="_blank"><input type="email" name="email" placeholder="you@email.com" required aria-label="Email address"><button type="submit">Send me the manuscript</button></form>
-</div>
-<p style="margin-top:1.6rem"><strong>On the obvious objection.</strong> Yes, this is a registration wall, Pattern <code class="tok pid">B-04</code>, one of the patterns this book documents. It is here on purpose and it is labelled: the manuscript is an unfinished draft, and I want to know who is reading it so corrections and credit can find their way back. The preview above is real content, not a teaser, and nothing in it is behind the wall. If you want to read it and email is a problem, <a href="mailto:amogh@beomelo.com?subject=Behavioral%20Debt%20manuscript">write to me</a> and I will send it anyway.</p>
-</section><section id="join" class="doc join"><p class="eyebrow">Join the research</p><h1>Reach out, push back, help build this</h1><p class="standfirst">This book makes one promise: it can be checked. If a citation does not hold or a claim reaches past its evidence, that is the most useful thing you can send. Refutation is welcome and it is credited. And if you build consumer software and want to help run the audit, get in touch. This is meant to be built in the open.</p><div class="subscribe"><p class="sub-pitch"><b>Get new chapters and the audit results by email.</b> The full manuscript and the PDF are sent by email. No spam, unsubscribe in one click.</p><form class="sub" action="https://buttondown.com/api/emails/embed-subscribe/itsamoghtiwari" method="post" target="_blank"><input type="email" name="email" placeholder="you@email.com" required aria-label="Email address"><button type="submit">Subscribe</button></form><p class="sub-print">Subscribe for new chapters at amoghtiwari.com</p></div><div class="contact"><a class="ct" href="https://x.com/itsamoghtiwari" target=_blank rel=noopener><span class="ct-i"><svg viewBox="0 0 24 24" class="ci" aria-hidden="true"><path fill="currentColor" d="M18.244 2H21.5l-7.09 8.104L22.75 22h-6.53l-5.11-6.68L5.24 22H1.98l7.58-8.66L1.25 2h6.69l4.62 6.11L18.244 2Zm-1.145 18.03h1.807L7.03 3.87H5.09l12.01 16.16Z"/></svg></span><span class="ct-t"><b>X / Twitter</b><span>@itsamoghtiwari</span></span></a><a class="ct" href="https://github.com/amoghtiwari34" target=_blank rel=noopener><span class="ct-i"><svg viewBox="0 0 24 24" class="ci" aria-hidden="true"><path fill="currentColor" d="M12 2C6.48 2 2 6.58 2 12.26c0 4.5 2.87 8.32 6.84 9.67.5.1.68-.22.68-.48l-.01-1.7c-2.78.62-3.37-1.2-3.37-1.2-.46-1.17-1.11-1.48-1.11-1.48-.9-.63.07-.62.07-.62 1 .07 1.53 1.05 1.53 1.05.9 1.55 2.34 1.1 2.91.84.09-.66.35-1.1.63-1.36-2.22-.26-4.56-1.13-4.56-5.03 0-1.11.39-2.02 1.03-2.73-.1-.26-.45-1.3.1-2.71 0 0 .84-.27 2.75 1.04a9.3 9.3 0 0 1 5 0c1.91-1.31 2.75-1.04 2.75-1.04.55 1.41.2 2.45.1 2.71.64.71 1.03 1.62 1.03 2.73 0 3.91-2.34 4.77-4.57 5.02.36.32.68.94.68 1.9l-.01 2.82c0 .26.18.58.69.48A10.02 10.02 0 0 0 22 12.26C22 6.58 17.52 2 12 2Z"/></svg></span><span class="ct-t"><b>GitHub</b><span>amoghtiwari34</span></span></a><a class="ct" href="https://www.linkedin.com/in/itsamoghtiwari/" target=_blank rel=noopener><span class="ct-i"><svg viewBox="0 0 24 24" class="ci" aria-hidden="true"><path fill="currentColor" d="M6.94 5.001a1.94 1.94 0 1 1-3.879 0 1.94 1.94 0 0 1 3.88 0ZM3.3 8.48h3.32V21H3.3V8.48Zm5.213 0h3.18v1.71h.045c.443-.84 1.525-1.726 3.14-1.726 3.358 0 3.977 2.21 3.977 5.083V21h-3.318v-5.49c0-1.31-.024-2.994-1.824-2.994-1.827 0-2.107 1.427-2.107 2.9V21H8.513V8.48Z"/></svg></span><span class="ct-t"><b>LinkedIn</b><span>in/itsamoghtiwari</span></span></a><a class="ct" href="mailto:amogh@beomelo.com?subject=Behavioral%20Debt"><span class="ct-i"><svg viewBox="0 0 24 24" class="ci" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.6" d="M3 5.5h18v13H3zM3.5 6l8.5 6 8.5-6"/></svg></span><span class="ct-t"><b>Email</b><span>amogh@beomelo.com</span></span></a></div><p class="support">If reading the whole thing was worth your time, you can <a href="https://www.buymeacoffee.com/itsamoghtiwari" target="_blank" rel="noopener">buy me a coffee</a>. Entirely optional, and it keeps the research going.</p></section>
-
-    <footer class="foot">
-      <p>Preview of a draft manuscript. Unpublished. Every figure, date and effect size in this document was retrieved from a primary source and recorded with a fetch date, or it is marked <span class="mark mark-gap">citation needed</span> and left visible on purpose. A short honest bibliography beats a long fictional one.</p>
-    </footer>
-  </main>
-</div>
-<div class="thanks" id="thanks">
-  <div class="thanks-card">
-    <div class="thanks-ic">&#10003;</div>
-    <h3>Check your email</h3>
-    <p>The reader link and the PDF are on their way, and new chapters will follow.</p>
-    <button class="thanks-btn" id="thanksClose">Close</button>
-  </div>
-</div><script>
-  var nt=document.getElementById('navtoggle'),rail=document.querySelector('.rail'),scrim=document.getElementById('scrim');
-  function closeNav(){ nt.classList.remove('open'); rail.classList.remove('open'); scrim.classList.remove('show'); }
-  if(nt){
-    nt.addEventListener('click',function(){ var o=rail.classList.toggle('open'); nt.classList.toggle('open',o); scrim.classList.toggle('show',o); });
-    scrim.addEventListener('click',closeNav);
-    document.querySelectorAll('.rail a').forEach(function(a){ a.addEventListener('click',closeNav); });
+  :root{
+    --bg:#0a0a0b; --panel:#101012; --ink:#f4f1ea; --mid:rgba(244,241,234,.74);
+    --soft:rgba(244,241,234,.55); --line:rgba(244,241,234,.14); --accent:#e08a4e;
+    --paper:#f6f5f2; --sans:"Helvetica Neue",Helvetica,Arial,sans-serif;
+    --pad:clamp(1.3rem,5vw,2rem);
   }
-  var thx=document.getElementById('thanks');
-  document.querySelectorAll('form.sub').forEach(function(f){
-    f.addEventListener('submit',function(){ setTimeout(function(){ f.reset(); if(thx) thx.classList.add('show'); },0); });
-  });
-  var thxc=document.getElementById('thanksClose');
-  if(thxc) thxc.addEventListener('click',function(){ thx.classList.remove('show'); });
-  if(thx) thx.addEventListener('click',function(e){ if(e.target===thx) thx.classList.remove('show'); });
-  document.addEventListener('keydown',function(e){ if(e.key==='Escape'&&thx) thx.classList.remove('show'); });
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:17px;
+    line-height:1.55;-webkit-font-smoothing:antialiased;}
+  a{color:inherit}
+  .sr{position:absolute;width:1px;height:1px;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+  .wrap{max-width:46rem;margin:0 auto;padding:0 var(--pad)}
+  .eyebrow{font-size:.64rem;letter-spacing:.26em;text-transform:uppercase;color:var(--soft)}
+
+  /* hero */
+  .hero{position:relative;min-height:100svh;min-height:100vh;display:flex;align-items:flex-end;
+    background:var(--bg) url("folder-1400.jpg") 50% 46% / contain no-repeat;}
+  @media(min-width:1500px){.hero{background-image:url("folder.jpg")}}
+  @media(max-width:52rem){.hero{background-image:url("folder-portrait.jpg");background-size:contain;
+    background-position:50% 38%;}}
+  .hero::after{content:"";position:absolute;inset:auto 0 0;height:44%;
+    background:linear-gradient(180deg,rgba(10,10,11,0),rgba(10,10,11,.86) 64%,var(--bg) 100%);}
+  .hero-acts{position:relative;z-index:2;width:100%;padding:0 var(--pad) clamp(2.2rem,7vh,4rem);
+    display:flex;flex-wrap:wrap;gap:.7rem;justify-content:center;}
+  .btn{display:inline-flex;align-items:center;justify-content:center;min-height:50px;
+    padding:.9rem 1.7rem;font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;
+    text-decoration:none;border:1px solid var(--line);background:rgba(244,241,234,.06);
+    transition:background .25s,border-color .25s}
+  .btn:hover{background:rgba(244,241,234,.14);border-color:var(--mid)}
+  .btn.key{background:var(--ink);color:#0a0a0b;border-color:var(--ink);font-weight:700}
+  .btn.key:hover{background:#fff}
+
+  section{padding:clamp(3.4rem,9vh,5.6rem) 0;border-top:1px solid var(--line)}
+  h2{font-size:.64rem;letter-spacing:.26em;text-transform:uppercase;color:var(--soft);
+    font-weight:400;margin-bottom:1.6rem}
+
+  .arg{font-size:clamp(1.35rem,4.4vw,2rem);line-height:1.34;letter-spacing:-.02em;font-weight:700;
+    max-width:24ch}
+  .arg em{font-style:normal;color:var(--accent)}
+  .arg-note{margin-top:1.4rem;font-size:1.02rem;line-height:1.6;color:var(--mid);max-width:52ch}
+
+  .rows{display:flex;flex-direction:column;gap:1.5rem}
+  .row{display:grid;grid-template-columns:1fr;gap:.3rem}
+  @media(min-width:40rem){.row{grid-template-columns:8.5rem 1fr;gap:1.6rem;align-items:baseline}}
+  .row b{font-size:.64rem;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);font-weight:400}
+  .row p{color:var(--mid);line-height:1.58}
+  .row p span{color:var(--ink)}
+
+  .taste{background:var(--paper);color:#141414;border-radius:2px;padding:clamp(1.6rem,5vw,2.4rem)}
+  .taste .tag{font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:#1550c8}
+  .taste h3{margin-top:.7rem;font-size:1.5rem;letter-spacing:-.02em}
+  .taste p{margin-top:.9rem;line-height:1.62;color:#2f3540}
+  .taste .cut{margin-top:1.1rem;font-size:.86rem;color:#6b7280}
+
+  .get{background:var(--panel);border:1px solid var(--line);border-radius:2px;
+    padding:clamp(1.6rem,5vw,2.4rem)}
+  .get h3{font-size:clamp(1.5rem,4.4vw,2rem);line-height:1.18;letter-spacing:-.02em;max-width:18ch}
+  .get .lead{margin-top:1rem;color:var(--mid);max-width:46ch;line-height:1.6}
+  form{margin-top:1.6rem;display:flex;flex-wrap:wrap;gap:.6rem}
+  input{flex:1 1 14rem;min-height:50px;padding:.8rem 1rem;font:inherit;font-size:1rem;
+    color:var(--ink);background:rgba(244,241,234,.05);border:1px solid var(--line)}
+  input::placeholder{color:var(--soft)}
+  input:focus{outline:none;border-color:var(--mid)}
+  .arrives{margin-top:1.2rem;font-size:.9rem;color:var(--soft);line-height:1.6}
+  .arrives b{color:var(--mid);font-weight:400}
+  .fine{margin-top:1.6rem;padding-top:1.3rem;border-top:1px solid var(--line);
+    font-size:.9rem;line-height:1.62;color:var(--soft)}
+  .fine a{color:var(--mid)}
+  .sent{margin-top:1rem;color:var(--accent)}
+
+  .who{display:grid;gap:1.2rem;max-width:52ch}
+  .who p{color:var(--mid);line-height:1.62}
+  .links{display:flex;flex-wrap:wrap;gap:.3rem 1.4rem}
+  .links a{font-size:.95rem;color:var(--mid);text-decoration:none;padding:.35rem 0}
+  .links a:hover{color:var(--ink)}
+
+  footer{padding:2rem 0 3rem;border-top:1px solid var(--line);font-size:.86rem;color:var(--soft);
+    line-height:1.6}
+  [hidden]{display:none!important}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <h1 class="sr">Behavioral Debt, a field guide to the hidden cost of persuasive design, by Amogh Tiwari</h1>
+  <p class="sr">Working manuscript, draft edition, 2026. Three chapters, 116 patterns in nine families, six original frameworks, 38 sources verified.</p>
+  <div class="hero-acts">
+    <a class="btn key" href="#get">Get the manuscript</a>
+    <a class="btn" href="#inside">See what is inside</a>
+  </div>
+</header>
+
+<main>
+  <section class="wrap" id="argument">
+    <h2>The argument in one sentence</h2>
+    <p class="arg">Persuasive software works by borrowing against the user's trust. The debt is invisible because <em>no dashboard has a line for it.</em></p>
+    <p class="arg-note">It compounds until a product is most hated at the exact moment it looks most engaged. The only real repayment is a design that gives the user back what was taken.</p>
+  </section>
+
+  <section class="wrap" id="inside">
+    <h2>What is in the manuscript</h2>
+    <div class="rows">
+      <div class="row"><b>Chapter 01</b><p><span>How Software Changes What You Do.</span> How does software change human behavior?</p></div>
+      <div class="row"><b>Chapter 02</b><p><span>How the Money Shaped the Software.</span> Where did the patterns come from?</p></div>
+      <div class="row"><b>Chapter 03</b><p><span>What the Screen Does to Your Brain.</span> What, precisely, is an interface acting on?</p></div>
+      <div class="row"><b>Taxonomy</b><p>116 patterns in 9 families, across 3 axes. Mechanism and morality kept apart, which is why a family of patterns that are good can exist at all.</p></div>
+      <div class="row"><b>Frameworks</b><p>Six instruments proposed here and labelled as such. None is dressed as an established finding.</p></div>
+      <div class="row"><b>The library</b><p>Nine patterns written to the full template: definition, psychological basis, interface expression, business rationale, valence, cost index, regulatory status, the honest alternative.</p></div>
+      <div class="row"><b>Apparatus</b><p>38 sources retrieved and read, with fetch dates. Five widely repeated claims turned out to be false and are listed as corrections.</p></div>
+    </div>
+  </section>
+
+  <section class="wrap" id="taste">
+    <h2>A page from it</h2>
+    <div class="taste">
+      <p class="tag">A-01 &middot; Attention and Capture</p>
+      <h3>Infinite Scroll</h3>
+      <p>Infinite scroll is a content-loading strategy in which the next batch of items is fetched and appended automatically as the user approaches the end of the current batch, so that the list never terminates.</p>
+      <p>Its behavioral significance is not what it adds but what it removes: the page boundary. A paginated list ends, and its ending forces a decision. An infinitely scrolling list never ends, so continuing requires no decision at all.</p>
+      <p class="cut">The full entry runs to ten sections, including what it costs the user and what the honest version looks like. It is in the manuscript.</p>
+    </div>
+  </section>
+
+  <section class="wrap" id="get">
+    <div class="get">
+      <h3>Read the whole thing</h3>
+      <p class="lead">Leave your email and I will send the reader link and the A4 PDF. New chapters and the app audit go to the same list.</p>
+      <form action="https://buttondown.com/api/emails/embed-subscribe/itsamoghtiwari" method="post" target="_blank">
+        <input type="email" name="email" placeholder="you@email.com" required aria-label="Email address">
+        <button class="btn key" type="submit">Send me the manuscript</button>
+      </form>
+      <p class="sent" id="sent" hidden>Check your email. The reader link and the PDF are on their way.</p>
+      <p class="arrives"><b>What arrives:</b> three chapters written to publication quality, the full taxonomy, the six frameworks, nine pattern entries, the sources apparatus, and the PDF. It is a working draft, not a finished book. Nine chapters are planned, three are written.</p>
+      <p class="fine"><strong>On the obvious objection.</strong> Yes, this is a registration wall, Pattern B-04, one of the patterns this book documents. It is here on purpose and it is labelled: the manuscript is unfinished and I want to know who is reading it, so corrections and credit can find their way back. If email is a problem, <a href="mailto:amogh@beomelo.com?subject=Behavioral%20Debt%20manuscript">write to me</a> and I will send it anyway.</p>
+    </div>
+  </section>
+
+  <section class="wrap" id="who">
+    <h2>Who wrote it</h2>
+    <div class="who">
+      <p>I build consumer software for a living, which means my job is to get people to open an app, come back, and eventually pay for it. That is also why I write about behavioral design: from inside the room where the decisions get made, not from above it.</p>
+      <p>Every claim in the book is meant to be checked. If a citation does not hold or a claim reaches past its evidence, that is the most useful thing you can send, and it is credited.</p>
+      <div class="links">
+        <a href="https://amoghtiwari.com/">amoghtiwari.com</a>
+        <a href="https://x.com/itsamoghtiwari" target="_blank" rel="noopener">X</a>
+        <a href="https://github.com/amoghtiwari34" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://www.linkedin.com/in/itsamoghtiwari/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="mailto:amogh@beomelo.com">Email</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="wrap">Behavioral Debt, working manuscript, draft edition 2026. Amogh Tiwari. Every figure and date in the document was retrieved from a primary source and recorded with a fetch date, or it is marked citation needed and left visible on purpose.</footer>
+</main>
+
+<script>
+  var f=document.querySelector('form'), s=document.getElementById('sent');
+  if(f&&s) f.addEventListener('submit',function(){ setTimeout(function(){ f.reset(); s.hidden=false; },0); });
 </script>
-</body></html>
+</body>
+</html>

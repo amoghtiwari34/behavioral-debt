@@ -333,8 +333,29 @@ a.toc-dead{color:inherit;text-decoration:none;cursor:default}</style>
     background:#1550c8;color:#fff;border:0;padding:.75rem 1.3rem;cursor:pointer;}
   .pg-form button:hover{background:#0f3fa8;}
 </style>
+<style>
+/* hero: the spread sits beside the title on wide screens, above it on phones */
+.cover{text-align:left;padding:clamp(3.5rem,9vh,6rem) clamp(1.3rem,5vw,2.4rem);}
+.cover-stage{position:relative;z-index:1;width:100%;max-width:76rem;margin:0 auto;
+  display:grid;grid-template-columns:1fr;gap:2.4rem;align-items:center;}
+.cover-inner{max-width:34rem;}
+.cover-sub{margin-left:0;margin-right:0;}
+.hero-shot{margin:0;order:-1;}
+.hero-shot img{display:block;width:100%;height:auto;border-radius:2px;
+  box-shadow:0 46px 90px -34px rgba(3,8,16,.85);}
+.hero-cap{margin-top:.8rem;font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;
+  color:rgba(240,236,228,.55);}
+.cover-begin{background:rgba(12,18,26,.78)!important;border-color:rgba(244,241,234,.26)!important;color:#f4f1ea!important;backdrop-filter:blur(2px);}
+.cover-begin:hover{background:rgba(12,18,26,.92)!important;}
+@media(min-width:62rem){
+  .cover-stage{grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr);gap:3.6rem;}
+  .hero-shot{order:0;}
+  .hero-cap{color:rgba(60,70,84,.62);}
+}
+</style>
 </head><body>
 <header class="cover" id="cover">
+  <div class="cover-stage">
   <div class="cover-inner">
     <p class="cover-kick">A field guide to the hidden cost of persuasive design</p>
     <h1 class="cover-title">Behavioral<span>Debt</span></h1>
@@ -343,6 +364,10 @@ a.toc-dead{color:inherit;text-decoration:none;cursor:default}</style>
     <p class="cover-ed">Working manuscript · Draft edition · 2026</p>
     <a class="cover-begin" href="#thesis">Read the preview</a><a class="cover-begin" href="#gate" style="margin-left:.7rem">Get the full manuscript</a>
   </div>
+  <figure class="hero-shot">
+    <img src="hero-1200.jpg" srcset="hero-1200.jpg 1200w, hero.jpg 2400w" sizes="(min-width:62rem) 52vw, 92vw" width="1200" height="800" alt="An open spread of the Behavioral Debt manuscript: the title page with the engagement and trust curves, facing the argument in one sentence.">
+  </figure>
+</div>
 </header>
 <button class="navtoggle" id="navtoggle" aria-label="Menu"><span></span><span></span><span></span></button>
 <div class="scrim" id="scrim"></div>
